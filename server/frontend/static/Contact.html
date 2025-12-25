@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us | Best Cars Dealership</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/static/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/style.css" />
+
+  <style>
+    body {
+      background: #f7f9fc;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      background-color: darkturquoise;
+      height: 1in;
+    }
+
+    .page-wrap {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 16px;
+    }
+
+    .hero {
+      background: linear-gradient(90deg, #17a2b8, #20c997);
+      color: #fff;
+      border-radius: 14px;
+      padding: 32px 28px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .hero h1 {
+      margin: 0 0 8px 0;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .hero p {
+      margin: 0;
+      opacity: 0.95;
+      max-width: 780px;
+      line-height: 1.5;
+    }
+
+    .grid {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+    }
+
+    .card-soft {
+      background: #fff;
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .card-soft h2 {
+      margin: 0 0 12px 0;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .info-row {
+      display: flex;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .info-row:last-child { border-bottom: none; }
+
+    .label {
+      min-width: 110px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .value {
+      color: #334155;
+      line-height: 1.45;
+    }
+
+    .pill {
+      display: inline-block;
+      background: rgba(23,162,184,0.12);
+      color: #0b7285;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-right: 8px;
+      margin-top: 6px;
+    }
+
+    .map-box {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.06);
+      height: 250px;
+      background: #eaf6f8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0b7285;
+      font-weight: 700;
+    }
+
+    .small {
+      color: #64748b;
+      font-size: 0.95rem;
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      .navbar { height: auto; padding: 10px 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header / Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <h2 style="padding-right: 5%; color: white; margin: 0;">Dealerships</h2>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+              aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: larger; color: white;" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: larger; color: white;" href="/about">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active fw-bold" style="font-size: larger; color: white;" href="/contact">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+
+    <div class="hero">
+      <h1>Contact Best Cars</h1>
+      <p>
+        Need help choosing a vehicle, booking a test drive, or asking about financing?
+        Reach out — our team usually replies within one business day.
+      </p>
+    </div>
+
+    <div class="grid">
+
+      <!-- Contact details -->
+      <div class="card-soft">
+        <h2>Contact Information</h2>
+
+        <div class="info-row">
+          <div class="label">Phone</div>
+          <div class="value">+1 (416) 555-0199</div>
+        </div>
+
+        <div class="info-row">
+          <div class="label">Email</div>
+          <div class="value">support@bestcars.com</div>
+        </div>
+
+        <div class="info-row">
+          <div class="label">Address</div>
+          <div class="value">
+            120 King Street West, Suite 210<br/>
+            Toronto, ON M5H 1J9, Canada
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="label">Hours</div>
+          <div class="value">
+            Mon–Fri: 9:00 AM – 7:00 PM<br/>
+            Sat: 10:00 AM – 5:00 PM<br/>
+            Sun: Closed
+          </div>
+        </div>
+
+        <div class="small">
+          <span class="pill">Test drives</span>
+          <span class="pill">Trade-in quotes</span>
+          <span class="pill">Financing help</span>
+          <span class="pill">Service support</span>
+          <p class="small" style="margin-bottom:0;">
+            Tip: Please include the vehicle make/model you’re interested in for faster support.
+          </p>
+        </div>
+      </div>
+
+      <!-- Extra / Map -->
+      <div class="card-soft">
+        <h2>Find Us</h2>
+        <div class="map-box">
+          Map Placeholder
+        </div>
+        <p class="small">
+          We’re located in downtown Toronto, a short walk from major transit stops.
+          Parking is available in the building.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="/static/bootstrap.bundle.min.js"></script>
+</body>
+</html>

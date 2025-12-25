@@ -1,68 +1,99 @@
 <html>
 <head>
-  <!-- Link the style sheet here -->
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
 </head>
-<div>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise; height: 1in;">
-    <div class="container-fluid">
-      <h2 style="padding-right: 5%;">Dealerships</h2>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" aria-current="page" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" style="font-size: larger;" href="/about">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" href="/contact">Contact Us</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  
-    <div class="card" style="width: 80%;margin: auto; margin-top:5%;">
-      <div class="banner" name="about-header">
-      <!-- Insert header information here -->
-      </div>
-      <div style="display: flex;flex-direction: row; margin:auto">
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person1</p>
-          <p>Person1 Title</p>
-          <p class="card-text">Some text that explains the person1 in about 2 short sentences</p>
-          <p>person1@example.com</p>
-        </div>
-      </div>
+<h1>About Us</h1>
+Welcome to Best Cars dealership, home to the best cars in North America. We deal in selling domestic and imported cars at reasonable prices.
 
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person2</p>
-          <p>Person2 Title</p>
-          <p class="card-text">Some text that explains the person2 in about 2 short sentences</p>
-          <p>person2@example.com</p>
-        </div>
-      </div>
 
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person3</p>
-          <p>Person3 Title</p>
-          <p class="card-text">Some text that explains the person3 in about 2 short sentences</p>
-          <p>person3@example.com</p>
-        </div>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <h2 class="text-white me-5">Best Cars</h2>
+
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active text-white fw-bold" href="/about">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/contact">Contact Us</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5">
+
+  <div class="about-header">
+    <h1>About Best Cars Dealership</h1>
+    <p class="mt-3">
+      Best Cars is a trusted automotive dealership serving customers across North America.
+      We specialize in high-quality domestic and imported vehicles, offering transparent pricing,
+      excellent customer service, and a seamless buying experience.
+    </p>
+  </div>
+
+  <div class="text-center mt-5">
+    <h2>Meet Our Team</h2>
+    <p class="text-muted">
+      Our experienced professionals are here to help you find the perfect car.
+    </p>
+  </div>
+
+  <div class="team-container">
+
+    <!-- Person 1 -->
+    <div class="card team-card">
+      <img src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1" alt="Sarah Johnson">
+      <div class="card-body">
+        <p class="name">Sarah Johnson</p>
+        <p class="role">General Manager</p>
+        <p>
+          Sarah has over 12 years of experience in the automotive industry and
+          is passionate about delivering exceptional customer experiences.
+        </p>
+        <p><small>sarah.johnson@bestcars.com</small></p>
       </div>
     </div>
+
+    <!-- Person 2 -->
+    <div class="card team-card">
+      <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d" alt="Michael Lee">
+      <div class="card-body">
+        <p class="name">Michael Lee</p>
+        <p class="role">Sales Lead</p>
+        <p>
+          Michael specializes in helping customers find vehicles that match
+          their lifestyle and budget with confidence.
+        </p>
+        <p><small>michael.lee@bestcars.com</small></p>
+      </div>
     </div>
+
+    <!-- Person 3 -->
+    <div class="card team-card">
+      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" alt="Emily Carter">
+      <div class="card-body">
+        <p class="name">Emily Carter</p>
+        <p class="role">Customer Support Manager</p>
+        <p>
+          Emily ensures every customer receives timely support and guidance
+          throughout their buying journey.
+        </p>
+        <p><small>emily.carter@bestcars.com</small></p>
+      </div>
     </div>
-    
+
+  </div>
+
 </div>
 
+</body>
 </html>

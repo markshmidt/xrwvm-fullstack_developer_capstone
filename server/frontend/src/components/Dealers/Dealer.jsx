@@ -18,9 +18,9 @@ const Dealer = () => {
   const [loadingReviews, setLoadingReviews] = useState(true);
 
   const baseUrl = window.location.origin;
-
-  const dealerUrl = `${baseUrl}/djangoapp/dealer/${id}/`;
-  const reviewsUrl = `${baseUrl}/djangoapp/reviews/dealer/${id}/`;
+  const dealerUrl = `${window.location.origin}/djangoapp/dealer/${id}`;
+  const reviewsUrl = `${window.location.origin}/djangoapp/reviews/dealer/${id}`;
+  
 
   // ------------------------
   // Fetch dealer info

@@ -25,57 +25,82 @@ logger = logging.getLogger(__name__)
 # Create a `login_request` view to handle sign in request
 @csrf_exempt
 def login_user(request):
-    # Get username and password from request.POST dictionary
-    data = json.loads(request.body)
-    username = data['userName']
-    password = data['password']
-    # Try to check if provide credential can be authenticated
+    if request.method == "OPTIONS":
+        return JsonResponse({}, status=200)
+
+    if request.method != "POST":
+        return JsonResponse({"error": "POST required"}, status=405)
+
+    try:
+        data = json.loads(request.body)
+    except json.JSONDecodeError:
+        return JsonResponse({"error": "Invalid JSON"}, status=400)
+
+    username = data.get("userName")
+    password = data.get("password")
+
     user = authenticate(username=username, password=password)
-    data = {"userName": username}
+
     if user is not None:
-        # If user is valid, call login method to login current user
         login(request, user)
-        data = {"userName": username, "status": "Authenticated"}
-    return JsonResponse(data)
+        return JsonResponse({
+            "userName": username,
+            "status": "Authenticated"
+        })
+
+    return JsonResponse(
+        {"error": "Invalid credentials"},
+        status=401
+    )
+
+
 
 # Create a `logout_request` view to handle sign out request
 def logout_request(request):
     logout(request) # Terminate user session
     data = {"userName":""} # Return empty username
     return JsonResponse(data)
-
 @csrf_exempt
 def registration(request):
-    context = {}
+    if request.method == "OPTIONS":
+        return JsonResponse({}, status=200)
 
-    # Load JSON data from the request body
-    data = json.loads(request.body)
-    username = data['userName']
-    password = data['password']
-    first_name = data['firstName']
-    last_name = data['lastName']
-    email = data['email']
-    username_exist = False
-    email_exist = False
+    if request.method != "POST":
+        return JsonResponse({"error": "POST required"}, status=405)
+
     try:
-        # Check if user already exists
-        User.objects.get(username=username)
-        username_exist = True
-    except:
-        # If not, simply log this is a new user
-        logger.debug("{} is new user".format(username))
+        data = json.loads(request.body)
+    except json.JSONDecodeError:
+        return JsonResponse({"error": "Invalid JSON"}, status=400)
 
-    # If it is a new user
-    if not username_exist:
-        # Create user in auth_user table
-        user = User.objects.create_user(username=username, first_name=first_name, last_name=last_name,password=password, email=email)
-        # Login the user and redirect to list page
-        login(request, user)
-        data = {"userName":username,"status":"Authenticated"}
-        return JsonResponse(data)
-    else :
-        data = {"userName":username,"error":"Already Registered"}
-        return JsonResponse(data)
+    username = data.get("userName")
+    password = data.get("password")
+    first_name = data.get("firstName")
+    last_name = data.get("lastName")
+    email = data.get("email")
+
+    if User.objects.filter(username=username).exists():
+        return JsonResponse(
+            {"error": "Already Registered"},
+            status=400
+        )
+
+    user = User.objects.create_user(
+        username=username,
+        password=password,
+        first_name=first_name,
+        last_name=last_name,
+        email=email
+    )
+
+    login(request, user)
+
+    return JsonResponse({
+        "userName": username,
+        "status": "Authenticated"
+    })
+
+
 def get_cars(request):
     count = CarMake.objects.filter().count()
     print(count)
@@ -102,8 +127,12 @@ def get_dealer_reviews(request, dealer_id):
         reviews = get_request(endpoint)
         for review_detail in reviews:
             response = analyze_review_sentiments(review_detail['review'])
-            print(response)
-            review_detail['sentiment'] = response['sentiment']
+
+            if response and 'sentiment' in response:
+                review_detail['sentiment'] = response['sentiment']
+            else:
+                review_detail['sentiment'] = "neutral"
+
         return JsonResponse({"status":200,"reviews":reviews})
     else:
         return JsonResponse({"status":400,"message":"Bad Request"})
